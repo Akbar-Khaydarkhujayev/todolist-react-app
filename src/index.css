@@ -1,13 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  font-family: "Poppins", sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.app-main {
+  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+}
+
+.app-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 30px 0;
+}
+
+.tasks-list {
+  overflow-y: auto;
+  padding: 0 20px 0 15px;
+}
+
+.task {
+  margin-bottom: 20px;
+  background-color: aliceblue;
+  min-height: 100px;
+  border-radius: 20px;
+  padding: 30px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  color: #dc3545;
+}
+
+.task-btns > * {
+  margin: 10px 10px !important;
+  color: #dc3545 !important;
+  height: 20px !important;
+  width: 20px !important;
+  font-size: 20px !important;
+  cursor: pointer;
+}
+
+.task-text {
+  width: calc(100% - 120px);
+  font-size: 20px;
+  line-height: 40px;
+  overflow-x: hidden;
+  min-height: max-content;
+}
+
+.crossed {
+  text-decoration: line-through #dc3545;
+  color: #dc3545;
+}
+
+.sort {
+  position: relative;
+  bottom: 14px;
+  height: 50px;
+  margin: 0 auto;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.sort > * {
+  cursor: pointer;
+  font-size: calc(8px + 10 * (100vw / 1024));
+  text-align: center;
+  width: calc(100% / 3);
+}
+
+.active {
+  background: #dc3545 !important;
+  border-color: red !important;
 }
