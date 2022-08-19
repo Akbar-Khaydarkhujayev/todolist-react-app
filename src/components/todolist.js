@@ -26,18 +26,23 @@ class ToDoList extends Component {
   };
 
   handleAdd = (value) => {
-    const valueObj = {
-      id: this.state.id,
-      task: value,
-      crossed: false,
-    };
-    const id = this.state.id + 1;
-    this.handleClose();
-    const tasks = [...this.state.tasks];
-    tasks.push(valueObj);
-    this.setState({ tasks });
-    this.setState({ id });
-    this.setState({ sortedTasks: tasks });
+    if (value.trim() !== "") {
+      const valueObj = {
+        id: this.state.id,
+        task: value,
+        crossed: false,
+      };
+      const id = this.state.id + 1;
+      this.handleClose();
+      const tasks = [...this.state.tasks];
+      tasks.push(valueObj);
+      this.setState({ tasks });
+      this.setState({ id });
+      this.setState({ sortedTasks: tasks });
+      this.setState({ value: "" });
+    } else {
+      alert("Enter Something First ...");
+    }
   };
 
   handleSetValue = (value) => {
@@ -67,7 +72,9 @@ class ToDoList extends Component {
     const currentId = Number(e.target.parentNode.id);
     this.setState({ currentId });
     const show1 = true;
+    const value = e.target.parentNode.previousSibling.innerText;
     this.setState({ show1 });
+    this.setState({ value });
   };
 
   handleEdit = () => {
@@ -146,7 +153,6 @@ class ToDoList extends Component {
                   <input
                     className="form-check-input"
                     type="checkbox"
-                    value=""
                     checked={task.crossed}
                     onChange={(e) => this.handleCross(e)}
                   ></input>
@@ -215,6 +221,7 @@ class ToDoList extends Component {
                   placeholder="Max 50 symbols"
                   maxLength="50"
                   rows={3}
+                  value={this.state.value}
                   onChange={(event) => this.handleSetValue(event.target.value)}
                   style={{ resize: "none" }}
                 ></Form.Control>
