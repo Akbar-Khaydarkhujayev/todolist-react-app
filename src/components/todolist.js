@@ -54,7 +54,7 @@ class ToDoList extends Component {
       (t) => t.id !== Number(e.target.parentNode.id)
     );
     this.setState({ tasks });
-    this.setState({ sortedTasks: tasks });
+    this.returnSorted(this.state.title);
   };
 
   handleCross = (e) => {
